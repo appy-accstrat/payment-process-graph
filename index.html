@@ -26,15 +26,12 @@
 <script>
 var cy = cytoscape({
   container: document.getElementById('cy'),
-
-  elements: [
-
-    // === Nodes ===
+    // ==== Nodes ====
     { data: { id: 'ExternalTrigger', label: 'External Trigger - User or API' } },
-    { data: { id: '1A', label: '1A: Channel access and log-in' } },
+    { data: { id: '1A', label: '1A: Channel access & log-in' } },
     { data: { id: '1B', label: '1B: Payment setup' } },
-    { data: { id: '1C', label: '1C: Data entry and input validation' } },
-    { data: { id: '1D', label: '1D: Submission and pre-capture' } },
+    { data: { id: '1C', label: '1C: Data entry & input validation' } },
+    { data: { id: '1D', label: '1D: Submission & pre-capture' } },
     { data: { id: '2A', label: '2A: Credential verification' } },
     { data: { id: '2B', label: '2B: Multi-factor / risk checks' } },
     { data: { id: '2C', label: '2C: Corporate role / limit checks' } },
@@ -84,12 +81,116 @@ var cy = cytoscape({
     { data: { id: 'StatusEvents', label: 'Status Events (Stages 1-10)' } },
     { data: { id: 'Logs', label: 'Logs (Stages 1-11)' } },
     { data: { id: 'Data', label: 'Data (Stages 1-11)' } },
-
-    // === Edges ===
-    // (I'll continue the edges below...)
-
-  ],
-
+    // ==== Edges ====
+    { data: { source: 'ExternalTrigger', target: '1A' } },
+    { data: { source: '1A', target: '1B' } },
+    { data: { source: '1B', target: '1C' } },
+    { data: { source: '1C', target: '1D' } },
+    { data: { source: '1A', target: '2A' } },
+    { data: { source: '1D', target: '2A' } },
+    { data: { source: '2A', target: '2B' } },
+    { data: { source: '1B', target: '2C' } },
+    { data: { source: '2A', target: '2C' } },
+    { data: { source: '2A', target: '2D' } },
+    { data: { source: '2B', target: '2D' } },
+    { data: { source: '2C', target: '2D' } },
+    { data: { source: '1D', target: '3A' } },
+    { data: { source: '1D', target: '3B' } },
+    { data: { source: '2C', target: '3B' } },
+    { data: { source: '3A', target: '3B' } },
+    { data: { source: '1D', target: '3C' } },
+    { data: { source: '3A', target: '3C' } },
+    { data: { source: '3A', target: '3D' } },
+    { data: { source: '3B', target: '3D' } },
+    { data: { source: '3C', target: '3D' } },
+    { data: { source: '1D', target: '4A' } },
+    { data: { source: '3D', target: '4A' } },
+    { data: { source: '4A', target: '4B' } },
+    { data: { source: '4B', target: '4C' } },
+    { data: { source: '4C', target: '4D' } },
+    { data: { source: '1D', target: '5A' } },
+    { data: { source: '2D', target: '5A' } },
+    { data: { source: '4D', target: '5A' } },
+    { data: { source: '1D', target: '5B' } },
+    { data: { source: '4D', target: '5B' } },
+    { data: { source: '1D', target: '5C' } },
+    { data: { source: '4D', target: '5C' } },
+    { data: { source: '5A', target: '5C' } },
+    { data: { source: '5A', target: '5D' } },
+    { data: { source: '5B', target: '5D' } },
+    { data: { source: '5C', target: '5D' } },
+    { data: { source: '1D', target: '6A' } },
+    { data: { source: '5D', target: '6A' } },
+    { data: { source: '6A', target: '6B' } },
+    { data: { source: '1D', target: '6C' } },
+    { data: { source: '2C', target: '6C' } },
+    { data: { source: '5D', target: '6C' } },
+    { data: { source: '6A', target: '6D' } },
+    { data: { source: '6B', target: '6D' } },
+    { data: { source: '6C', target: '6D' } },
+    { data: { source: '4B', target: '7A' } },
+    { data: { source: '6D', target: '7A' } },
+    { data: { source: '1D', target: '7B' } },
+    { data: { source: '6D', target: '7B' } },
+    { data: { source: '7A', target: '7C' } },
+    { data: { source: '7B', target: '7C' } },
+    { data: { source: '7A', target: '7D' } },
+    { data: { source: '7B', target: '7D' } },
+    { data: { source: '7C', target: '7D' } },
+    { data: { source: '7A', target: '8A' } },
+    { data: { source: '7B', target: '8A' } },
+    { data: { source: '7C', target: '8A' } },
+    { data: { source: '7D', target: '8A' } },
+    { data: { source: '8A', target: '8B' } },
+    { data: { source: '4B', target: '8C' } },
+    { data: { source: '7B', target: '8C' } },
+    { data: { source: '8A', target: '8C' } },
+    { data: { source: '8A', target: '8D' } },
+    { data: { source: '8B', target: '8D' } },
+    { data: { source: '8C', target: '8D' } },
+    { data: { source: '8D', target: '9A' } },
+    { data: { source: '8D', target: '9B' } },
+    { data: { source: '9A', target: '9B' } },
+    { data: { source: '4D', target: '9C' } },
+    { data: { source: '8D', target: '9C' } },
+    { data: { source: '9A', target: '9C' } },
+    { data: { source: '9A', target: '9D' } },
+    { data: { source: '9B', target: '9D' } },
+    { data: { source: '6D', target: '10A' } },
+    { data: { source: '8D', target: '10A' } },
+    { data: { source: '9A', target: '10A' } },
+    { data: { source: '9B', target: '10A' } },
+    { data: { source: '9B', target: '10B' } },
+    { data: { source: '10A', target: '10B' } },
+    { data: { source: '3D', target: '10C' } },
+    { data: { source: '5D', target: '10C' } },
+    { data: { source: '7D', target: '10C' } },
+    { data: { source: '8D', target: '10C' } },
+    { data: { source: '9A', target: '10C' } },
+    { data: { source: '9B', target: '10C' } },
+    { data: { source: '10A', target: '10C' } },
+    { data: { source: '1D', target: '10D' } },
+    { data: { source: '2D', target: '10D' } },
+    { data: { source: '3D', target: '10D' } },
+    { data: { source: '4D', target: '10D' } },
+    { data: { source: '5D', target: '10D' } },
+    { data: { source: '6D', target: '10D' } },
+    { data: { source: '7D', target: '10D' } },
+    { data: { source: '8D', target: '10D' } },
+    { data: { source: '9D', target: '10D' } },
+    { data: { source: '10C', target: '10D' } },
+    { data: { source: 'EventBus', target: '11A' } },
+    { data: { source: '10B', target: '11B' } },
+    { data: { source: 'AggregatedData', target: '11C' } },
+    { data: { source: 'StatusEvents', target: '11D' } },
+    { data: { source: 'Logs', target: '12A' } },
+    { data: { source: 'Data', target: '12B' } },
+    { data: { source: '1D', target: '12C' } },
+    { data: { source: '5B', target: '12C' } },
+    { data: { source: '5C', target: '12C' } },
+    { data: { source: '9A', target: '12C' } },
+    { data: { source: '12A', target: '12D' } },
+    { data: { source: '12B', target: '12D' } }
   style: [
     {
       selector: 'node',
@@ -110,18 +211,19 @@ var cy = cytoscape({
       selector: 'edge',
       style: {
         'width': 2,
-        'line-color': '#ccc',
-        'target-arrow-color': '#ccc',
+        'line-color': '#cccccc',
+        'target-arrow-color': '#cccccc',
         'target-arrow-shape': 'triangle'
       }
     },
     {
-      selector: ':selected',
+      selector: '.highlighted',
       style: {
         'background-color': '#ff4136',
         'line-color': '#ff4136',
         'target-arrow-color': '#ff4136',
-        'text-outline-color': '#ff4136'
+        'transition-property': 'background-color, line-color, target-arrow-color',
+        'transition-duration': '0.5s'
       }
     }
   ],
@@ -135,13 +237,23 @@ var cy = cytoscape({
   }
 });
 
-// Optional: highlight incoming & outgoing on node click
-cy.on('tap', 'node', function(evt){
-  var node = evt.target;
+// Clear previous highlights
+function clearHighlights() {
   cy.elements().removeClass('highlighted');
+}
+
+// Recursively highlight upstream
+function highlightUpstream(node) {
   node.addClass('highlighted');
-  node.connectedEdges().addClass('highlighted');
-  node.connectedEdges().connectedNodes().addClass('highlighted');
+  node.incomers('edge').addClass('highlighted');
+  node.incomers('node').forEach(highlightUpstream);
+}
+
+// On node click
+cy.on('tap', 'node', function(evt){
+  clearHighlights();
+  var node = evt.target;
+  highlightUpstream(node);
 });
 </script>
 
